@@ -1,10 +1,19 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View } from "react-native";
+import React from "react";
+import { Button, Text } from "react-native-paper";
 
-export const HomeScreen =() => {
+export const HomeScreen = () => {
   return (
     <View>
       <Text>HomeScreen</Text>
+
+      <Button
+        icon="camera"
+        mode="contained"
+        onPress={() => console.log("Pressed")}
+      >
+        Press me
+      </Button>
     </View>
-  )
-}
+  );
+};

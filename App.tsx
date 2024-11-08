@@ -1,14 +1,11 @@
-import 'react-native-gesture-handler';
-
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { StackNavigation } from './src/navigation/StackNavigation';
+import "react-native-gesture-handler";
+import { StackNavigation } from "./src/navigation/StackNavigation";
+import { ThemeContextProvider } from "./src/context/ThemeContext";
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <ThemeContextProvider>
       <StackNavigation />
-    </NavigationContainer>
+    </ThemeContextProvider>
   );
 }
