@@ -69,7 +69,7 @@ export const ThemeContextProvider = ({ children }: PropsWithChildren) => {
 
   return (
     <PaperProvider theme={theme}>
-      <NavigationContainer theme={navigationTheme}>
+      <NavigationContainer theme={theme}>
         <ThemeContext.Provider value={{
             isDark: isDarkTheme,
             theme
