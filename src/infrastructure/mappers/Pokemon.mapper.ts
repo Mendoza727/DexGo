@@ -1,11 +1,15 @@
-import type { Pokemon } from "../../domain/entities/Pokemon";
-import type { PokemonInfoResponse } from "../interfaces/PokemonResponse.interface";
+import { getColorApi } from "@/actions/colors/Get-Colors";
+import type { Pokemon } from "@/domain/entities/Pokemon";
+import type { PokemonInfoResponse } from "@/infrastructure/interfaces/PokemonResponse.interface";
 
 export class PokemonMapper {
-  static PokemonMapToEntity(data: PokemonInfoResponse): Pokemon {
+  static PokemonMapToEntity = async(data: PokemonInfoResponse): Promise<Pokemon> => {
     const sprites = PokemonMapper.getSprites(data);
     const avatar = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`;
 
+    const color = await getColorApi(avatar);
+    const rgbToColor = `rgb(${color?.dominantColor.join(', ')})`
+    
     return {
       id: data.id,
       avatar: avatar,
@@ -18,6 +22,7 @@ export class PokemonMapper {
       weight: data.weight,
       items: data.held_items,
       location: data.location_area_encounters,
+      color: rgbToColor
     };
   }
 
