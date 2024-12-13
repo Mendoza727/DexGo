@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/faviconDexGo.jpeg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.juanitocs.DexGo"
     },
     "web": {
       "favicon": "./assets/favicon.png"

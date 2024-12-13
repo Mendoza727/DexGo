@@ -10,6 +10,7 @@ export interface Pokemon {
     abilities: string[];
     location: string;
     items: any[];
+    color: string;
     //TODO: 
     // color: string; // para cambiar el color de la tarjeta
 }
