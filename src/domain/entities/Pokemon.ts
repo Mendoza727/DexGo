@@ -1,16 +1,23 @@
 export interface Pokemon {
-    id: number;
+  id: number;
+  name: string;
+  types: string[];
+  avatar: string;
+  sprites: string[];
+  color: string;
+
+  games: string[];
+  stats: Stats[];
+  abilitys: string[];
+  moves: Move[];
+}
+
+export interface Stats {
     name: string;
-    types: string[];
-    avatar: string;
-    sprites: string[];
-    moves: string[];
-    stasts: string[];
-    weight: number;
-    abilities: string[];
-    location: string;
-    items: any[];
-    color: string;
-    //TODO: 
-    // color: string; // para cambiar el color de la tarjeta
+    value: number;
+}
+
+export interface Move {
+    name: string;
+    level: number;
 }

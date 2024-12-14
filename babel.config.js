@@ -11,12 +11,12 @@ module.exports = function(api) {
       [
         'module-resolver',
         {
-          root: ['./src'], // Asegúrate de que esta sea tu carpeta principal
+          root: ['./src'],
           alias: {
-            '@/': './src/', // Alias configurado correctamente
+            '@/': './src/',
           },
         },
-      ],
+      ]
     ],
   };
 };
