@@ -11,6 +11,7 @@ import { useQuery } from '@tanstack/react-query';
 import { FullScreenLoader } from '@/components/ui/FullScreenLoader';
 import { getPokemonByIds, getPokemosNamesWithId } from '@/actions/Pokemons';
 import { useDebounceValue } from '@/hooks/useDebounceValue';
+import { PokemonBg } from '@/components/ui/PokemonBg';
 
 export const SearchScreen = () => {
   const { top } = useSafeAreaInsets();
@@ -48,7 +49,7 @@ export const SearchScreen = () => {
   }
 
   return (
-    <View style={[globalTheme.globalMargin, { top: top + 20 }]}>
+    <View style={[globalTheme.globalMargin, { top: top + 20, flex: 1 }]}>
       <TextInput
         placeholder='search pokemon'
         mode='flat'
@@ -88,6 +89,8 @@ export const SearchScreen = () => {
         windowSize={5}
         ListFooterComponent={ <View style={{ height: 160 }}/>}
       />
+
+      <PokemonBg style={styles.pokeballBg} /> 
     </View>
   )
 }
@@ -98,10 +101,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10,
-    marginTop: 150
+    marginTop: 130
   },
   lottieAnimation: {
     width: 175,
     height: 175,
+  },
+  pokeballBg: {
+    position: 'absolute',
+    bottom: -50,
+    left: -100,
+    opacity: 0.5,
+    width: 300,
+    height: 300,
+    zIndex: -1
   }
 })
