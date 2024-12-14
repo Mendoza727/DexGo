@@ -1,14 +1,16 @@
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
+import { StackNavigation } from "./src/navigation/StackNavigation";
+import { ThemeContextProvider } from "./src/context/ThemeContext";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { StackNavigation } from './src/navigation/StackNavigation';
+const queryClient = new QueryClient();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <StackNavigation />
-    </NavigationContainer>
+    <QueryClientProvider client={queryClient}>
+      <ThemeContextProvider>
+        <StackNavigation />
+      </ThemeContextProvider>
+    </QueryClientProvider>
   );
 }

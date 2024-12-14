@@ -4,6 +4,7 @@
     "slug": "DexGo",
     "version": "1.0.0",
     "orientation": "portrait",
+    "newArchEnabled": true,
     "icon": "./assets/faviconDexGo.jpeg",
     "userInterfaceStyle": "light",
     "splash": {
@@ -18,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/faviconDexGo.jpeg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.juanitocs.DexGo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
