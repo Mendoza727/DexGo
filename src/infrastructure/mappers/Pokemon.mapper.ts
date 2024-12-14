@@ -3,28 +3,37 @@ import type { Pokemon } from "@/domain/entities/Pokemon";
 import type { PokemonInfoResponse } from "@/infrastructure/interfaces/PokemonResponse.interface";
 
 export class PokemonMapper {
-  static PokemonMapToEntity = async(data: PokemonInfoResponse): Promise<Pokemon> => {
+  static PokemonMapToEntity = async (
+    data: PokemonInfoResponse
+  ): Promise<Pokemon> => {
     const sprites = PokemonMapper.getSprites(data);
     const avatar = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`;
 
     const color = await getColorApi(avatar);
-    const rgbToColor = `rgb(${color?.dominantColor.join(', ')})`
-    
+    const rgbToColor = `rgb(${color?.dominantColor.join(", ")})`;
+
     return {
       id: data.id,
-      avatar: avatar,
       name: data.name,
+      avatar: avatar,
       sprites: sprites,
-      types: data.types.map((value) => value.type.name),
-      stasts: data.stats.map((value) => value.stat.name),
-      abilities: data.abilities.map((value) => value.ability.name),
-      moves: data.moves.map((value) => value.move.name),
-      weight: data.weight,
-      items: data.held_items,
-      location: data.location_area_encounters,
-      color: rgbToColor
+      types: data.types.map((type) => type.type.name),
+      color: rgbToColor,
+
+      games: data.game_indices.map((gma) => gma.version.name),
+      abilitys: data.abilities.map((hability) => hability.ability.name),
+      stats: data.stats.map((stat) => ({
+        name: stat.stat.name,
+        value: stat.base_stat,
+      })),
+      moves: data.moves
+        .map((mv) => ({
+          name: mv.move.name,
+          level: mv.version_group_details[0].level_learned_at,
+        }))
+        .sort((a, b) => a.level - b.level),
     };
-  }
+  };
 
   static getSprites(data: PokemonInfoResponse): string[] {
     const sprites: any[] = [
