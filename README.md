@@ -27,7 +27,7 @@
 
 1. Clona este repositorio en tu máquina local:
 ```bash
-   git clone https://github.com/tu-usuario/08-dexgo.git
+   git clone https://github.com/Mendoza727/DexGo
 ```
 2. Navega a la carpeta del proyecto:
 ```bash
