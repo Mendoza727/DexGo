@@ -9,7 +9,7 @@
 
 ## Descripción
 
-**Pokedex** es una aplicación móvil construida con **React Native** y **Expo** que permite consultar información sobre Pokémon usando la [API de Pokémon](https://pokeapi.co/). Los usuarios pueden buscar Pokémon por nombre y ver detalles como:
+**DexGo** es una aplicación móvil construida con **React Native** y **Expo** que permite consultar información sobre Pokémon usando la [API de Pokémon](https://pokeapi.co/). Los usuarios pueden buscar Pokémon por nombre y ver detalles como:
 
 - **Sprites**: Imágenes de los Pokémon.
 - **Stats**: Estadísticas básicas del Pokémon.
